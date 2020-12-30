@@ -35,10 +35,10 @@ public class SecureRestTemplateConfig {
     String keyStore;
 
     @Value("${secure-rest.keyStorePassword}")
-    String keyStorePassword;
+    char[] keyStorePassword;
 
     @Value("${secure-rest.keyPassword}")
-    String keyPassword;
+    char[] keyPassword;
 
     /**
      * URL location, typically with file:// scheme, of a CA trust store file in JKS format.
@@ -68,7 +68,7 @@ public class SecureRestTemplateConfig {
                     .setKeyStoreType(KeyStore.getDefaultType()) // JKS or p12
                     .setKeyManagerFactoryAlgorithm(SUN_X_509)
                     .setTrustManagerFactoryAlgorithm(SUN_X_509)
-                    .loadKeyMaterial(keyStoreFile, keyStorePassword.toCharArray(), keyStorePassword.toCharArray())
+                    .loadKeyMaterial(keyStoreFile, keyStorePassword, keyPassword)
                     .loadTrustMaterial(new TrustAllStrategy())
                     .setProtocol(protocol)
                     .build();
@@ -87,6 +87,8 @@ public class SecureRestTemplateConfig {
         } finally {
             // it's a good security practice to zero out passwords,
             // which is why they're char[]
+            Arrays.fill(keyStorePassword, (char) 0);
+            Arrays.fill(keyPassword, (char) 0);
             Arrays.fill(trustStorePassword, (char) 0);
         }
     }
