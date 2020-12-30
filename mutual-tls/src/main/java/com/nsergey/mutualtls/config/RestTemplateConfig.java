@@ -1,31 +1,7 @@
-package com.example.demo.config;
+package com.nsergey.mutualtls.config;
 
-import ch.qos.logback.core.net.ssl.KeyStoreFactoryBean;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.webresources.FileResource;
-import org.apache.http.config.Registry;
-import org.apache.http.config.RegistryBuilder;
-import org.apache.http.conn.socket.ConnectionSocketFactory;
-import org.apache.http.conn.socket.PlainConnectionSocketFactory;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.apache.http.ssl.SSLContextBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
-import sun.net.www.http.HttpClient;
-
-import javax.net.SocketFactory;
-import javax.net.ssl.SSLContext;
-import java.io.File;
-import java.net.URL;
-import java.security.*;
 
 @Slf4j
 @Configuration

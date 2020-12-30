@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.nsergey.mutualtls.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.client.HttpClient;
